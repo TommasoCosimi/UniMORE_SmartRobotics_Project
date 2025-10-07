@@ -1,0 +1,21 @@
+# MoveIt2 Workspace
+ros-humble-sim_workspace/ws_moveit2/
+# Rviz2 Workspace
+ros-humble-sim_workspace/ws_rviz2/
+# Universal Robots
+ros-humble-sim_workspace/ws_ur_ext/
+# Robotiq Gripper
+ros-humble-sim_workspace/ws_robotiq_gripper/
+# Project Workspace compilation artifacts
+ros-humble-sim_workspace/.vscode
+ros-humble-sim_workspace/ws_ur/build/
+ros-humble-sim_workspace/ws_ur/install/
+ros-humble-sim_workspace/ws_ur/log/
+# Path Predictor Workspace Python packages artifacts
+path-predictor_workspace/image_processing/__pycache__
+# Common Workspace
+common_workspace/
+# X11 Sock
+utils/novnc_server/desktop-x11/
+# VNC Password file
+utils/novnc_server/scripts/.vncpass
