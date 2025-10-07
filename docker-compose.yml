@@ -1,0 +1,69 @@
+services:
+  ros-humble-sim:
+    container_name: ros-humble-sim
+    privileged: true
+    build:
+      context: ./.devcontainer/ros-humble-sim/
+      dockerfile: Dockerfile
+    volumes:
+      # ROS Workspace
+      - ./ros-humble-sim_workspace:/ros_workspace
+      # Common Workspace
+      - ./common_workspace:/common
+      # ROS Utils
+      - ./utils/ros-humble-sim:/utils
+      # X11 Socket
+      - ./utils/novnc_server/desktop-x11:/tmp/.X11-unix
+      - ./utils/novnc_server/desktop-x11/.Xauthority:/tmp/.Xauthority:ro
+    environment:
+      # X11 Setup
+      - DISPLAY=:1
+      - XAUTHORITY=/tmp/.Xauthority
+    command: sleep infinity
+    depends_on:
+      - novnc_server
+
+  path-predictor:
+    container_name: path-predictor
+    build:
+      context: ./.devcontainer/path-predictor/
+      dockerfile: Dockerfile
+    volumes:
+      # Python Workspace
+      - ./path-predictor_workspace:/py_workspace
+      # Common Workspace
+      - ./common_workspace:/common
+      # Python Utils
+      - ./utils/path-predictor:/utils
+      # X11 Socket
+      - ./utils/novnc_server/desktop-x11:/tmp/.X11-unix
+      - ./utils/novnc_server/desktop-x11/.Xauthority:/tmp/.Xauthority:ro
+    environment:
+      #X11 Setup
+      - DISPLAY=:1
+      - XAUTHORITY=/tmp/.Xauthority
+    command: sleep infinity
+    depends_on:
+      - novnc_server
+
+  novnc_server:
+    container_name: novnc_server
+    ports:
+      # Allow connections to the noVNC Host from the Docker host only
+      - 127.0.0.1:6080:6080
+      # Allow connections to the noVNC Host from every interface of the Docker Host
+      # - 6080:6080
+    build:
+      context: ./utils/novnc_server/
+      dockerfile: Dockerfile
+    volumes:
+      # noVNC Server utilities and scripts
+      - ./utils/novnc_server/scripts:/scripts
+      # X11 Socket
+      - ./utils/novnc_server/desktop-x11:/tmp/.X11-unix
+      - ./utils/novnc_server/desktop-x11/.Xauthority:/tmp/.Xauthority
+    environment:
+      # X11 Setup
+      - DISPLAY=:1
+      - XAUTHORITY=/tmp/.Xauthority
+    command: [ "/scripts/startup.sh" ]
