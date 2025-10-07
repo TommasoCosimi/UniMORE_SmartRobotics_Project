@@ -122,7 +122,7 @@ ros2 launch ur_gripper_sim sim_w{i}.launch.py
 ## Run the node once the simulation environment (Terminal Window 1) is ready
 ros2 run ur_gripper_sim run_ik
 ```
-Where "`{i}`" has to be the same as the one at step 2.1, otherwise other contours will be used.
+Where "`{i}`" has to be the same as the one at step [1](#1-spawn-the-robot-with-the-depth-camera-and-take-pictures), otherwise other contours will be used.
 
 ## Acknowledgements
 The simulation setup (Robot spawning in Gazebo, its MoveIt setup and the attachment of the Robotiq Gripper) has been inspired by the tutorials from [LearnRoboticsWithROS](https://www.learn-robotics-with-ros.com/) ([YouTube](https://www.youtube.com/@learn-robotics-with-ros), [GitHub](https://github.com/LearnRoboticsWROS)), setup which has been adapted for its usage in our simulation.
