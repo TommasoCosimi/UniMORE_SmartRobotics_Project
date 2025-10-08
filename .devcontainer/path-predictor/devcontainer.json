@@ -7,13 +7,13 @@
     "shutdownAction": "none",
     "workspaceFolder": "/py_workspace",
     "customizations": {
-    "vscode": {
-        "extensions": [
-            "ms-python.python",
-            "ms-python.debugpy",
-            "ms-python.vscode-pylance",
-            "ms-python.vscode-python-envs"
-        ]
-    }
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-python.vscode-pylance",
+                "ms-python.vscode-python-envs"
+            ]
+        }
   }
 }
