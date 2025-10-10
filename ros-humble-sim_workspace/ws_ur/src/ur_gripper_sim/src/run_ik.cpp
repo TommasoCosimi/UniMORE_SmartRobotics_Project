@@ -186,29 +186,29 @@ int main(
     // Create the Planning Scene and add the collision objects
     moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
     std::vector<moveit_msgs::msg::CollisionObject> collision_objects;
-    collision_objects.resize(4);
+    collision_objects.resize(2);
     // Description of the Robot Base
-    collision_objects[3].id = "robot_base";
-    collision_objects[3].header.frame_id = "world";
-    collision_objects[3].primitives.resize(1);
-    collision_objects[3].primitives[0].type = shape_msgs::msg::SolidPrimitive::CYLINDER;
-    collision_objects[3].primitives[0].dimensions = {0.750, 0.175};
-    collision_objects[3].primitive_poses.resize(1);
-    collision_objects[3].primitive_poses[0].position.x = 0.000;
-    collision_objects[3].primitive_poses[0].position.y = 0.000;
-    collision_objects[3].primitive_poses[0].position.z = 0.375;
-    collision_objects[3].operation = moveit_msgs::msg::CollisionObject::ADD;
-    // Description of the Target Base
-    collision_objects[0].id = "target_base";
+    collision_objects[0].id = "robot_base";
     collision_objects[0].header.frame_id = "world";
     collision_objects[0].primitives.resize(1);
-    collision_objects[0].primitives[0].type = shape_msgs::msg::SolidPrimitive::BOX;
-    collision_objects[0].primitives[0].dimensions = {0.25, 0.75, 1.00};
+    collision_objects[0].primitives[0].type = shape_msgs::msg::SolidPrimitive::CYLINDER;
+    collision_objects[0].primitives[0].dimensions = {0.750, 0.175};
     collision_objects[0].primitive_poses.resize(1);
-    collision_objects[0].primitive_poses[0].position.x = 0.50;
-    collision_objects[0].primitive_poses[0].position.y = 0.00;
-    collision_objects[0].primitive_poses[0].position.z = 0.50;
+    collision_objects[0].primitive_poses[0].position.x = 0.000;
+    collision_objects[0].primitive_poses[0].position.y = 0.000;
+    collision_objects[0].primitive_poses[0].position.z = 0.375;
     collision_objects[0].operation = moveit_msgs::msg::CollisionObject::ADD;
+    // Description of the Target Base
+    collision_objects[1].id = "target_base";
+    collision_objects[1].header.frame_id = "world";
+    collision_objects[1].primitives.resize(1);
+    collision_objects[1].primitives[0].type = shape_msgs::msg::SolidPrimitive::BOX;
+    collision_objects[1].primitives[0].dimensions = {0.25, 0.75, 1.00};
+    collision_objects[1].primitive_poses.resize(1);
+    collision_objects[1].primitive_poses[0].position.x = 0.50;
+    collision_objects[1].primitive_poses[0].position.y = 0.00;
+    collision_objects[1].primitive_poses[0].position.z = 0.50;
+    collision_objects[1].operation = moveit_msgs::msg::CollisionObject::ADD;
     // Add the objects
     planning_scene_interface.applyCollisionObjects(collision_objects);
     RCLCPP_INFO(logger, "Collision objects added to the planning scene.");
@@ -236,8 +236,8 @@ int main(
     geometry_msgs::msg::Quaternion orientation = tf2::toMsg(q);
 
     // Build the waypoints from the pts vector coming from the file
-    // NOTE: the target z position will be offset by the length of the end effector in the closed postion,
-    // such info is available on the Robotiq website:
+    // NOTE: the target z position will be offset by the length of the end effector in the closed postion
+    // Such info is available on the Robotiq website:
     // https://assets.robotiq.com/website-assets/support_documents/document/online/2F-85_2F-140_TM_InstructionManual_HTML5_20190503.zip/2F-85_2F-140_TM_InstructionManual_HTML5/Content/6.%20Specifications.htm
     const double z_offset = 0.163;
     std::vector<geometry_msgs::msg::Pose> waypoints;
