@@ -1,0 +1,87 @@
+\begin{frame}{Project Overview}
+    The Project explores the \textbf{Motion Planning} capabilities of a simulated \textbf{Universal Robots UR5} manipulator aided by \textbf{Computer Vision} techniques.
+
+    The \textbf{Robot simulation} runs under \textbf{ROS2 Humble} accompanied by \textbf{MoveIt2} and exploiting \textbf{Gazebo 11} for a physically-accurate simulation environment, while the \textbf{Computer Vision applications} make use of both \textbf{ROS Nodes} and standalone \textbf{Python scripts}.
+
+    All of this is running inside \textbf{Docker Containers}.
+\end{frame}
+
+\subsection{Why this Toolset}
+\begin{frame}{Why ROS2?}
+    \begin{columns}
+        \begin{column}{.75\linewidth}
+            The \textbf{discontinuation} and \textbf{deprecation} of the \textbf{classic ROS distributions} is the main driving factor behind the move to ROS2.
+
+            Other advantages of ROS2 compared to ROS:
+            \begin{itemize}
+                \item \textbf{DDS} Approach, no more Master Node
+                \begin{itemize}
+                    \item Decentralization
+                    \item Lower communication latency (Real Time applications)
+                    \item Support for QoS
+                    \item Easier Scalability
+                \end{itemize}
+                \item Standardization of a \textbf{Security Model}
+                \item More \textbf{modern building} and \textbf{packaging} (\texttt{colcon})
+                \item Initial \textbf{support} for different Operating Systems
+            \end{itemize}
+        \end{column}
+        \begin{column}{.25\linewidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{media/ROSHumble.png}
+            \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Why MoveIt2?}
+    \begin{columns}
+        \begin{column}{.75\linewidth}
+            MoveIt2 is a mostly complete porting of the MoveIt framework to ROS2.
+
+            Being compatible with ROS2 it brings in all of its advantages.
+
+            APIs:
+            \begin{itemize}
+                \item C++ $\rightarrow$ Complete w.r.t. MoveIt for ROS
+                \item Python $\rightarrow$ Almost complete w.r.t. MoveIt for ROS
+            \end{itemize}
+        \end{column}
+        \begin{column}{.25\linewidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{media/MoveIt2Humble.png}
+            \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Why Docker?}
+    \begin{columns}
+        \begin{column}{.75\linewidth}
+            Containerizing applications means:
+            \begin{itemize}
+                \item \textbf{Isolation}
+                \item \textbf{Security}
+                \item \textbf{Reproducibility}
+                \item \textbf{Portability}
+            \end{itemize}
+
+            This project provides a way to develop ROS and Python applications inside specific \textbf{Host-OS-agnostic Containers} which ensure a \textbf{standard development environment}, all while offering \textbf{less overhead} than using a full Virtual Machine.
+        \end{column}
+        \begin{column}{.25\linewidth}
+            \begin{center}
+                \includesvg[width=\textwidth]{media/Docker.svg}
+            \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Why DevContainers?}
+    \begin{columns}
+        \begin{column}{.75\linewidth}
+            Using \textbf{DevContainers} is helpful while developing containerized applications because it \textbf{allows} for \textbf{development} work to happen \textbf{directly inside} of \textbf{the target container} in a declared environment (even for the IDE).
+        \end{column}
+        \begin{column}{.25\linewidth}
+            \begin{center}
+                \includesvg[width=\textwidth]{media/Docker.svg}
+            \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}

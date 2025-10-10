@@ -1,0 +1,65 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usetheme{metropolis}
+
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{minted}
+
+% Meta info
+\title{Universal Robots UR5 Smart Outliner}
+\subtitle{A ROS2 Simulation inside a Containerized environment}
+\author{
+    \textbf{Student:} Tommaso Cosimi \\
+    \textbf{ID:} 191739
+}
+\date{}
+\institute{
+    Università degli Studi di Modena e Reggio Emilia \\
+    Dipartimento di Ingegneria ``Enzo Ferrari''
+}
+
+\begin{document}
+% Title Page
+\maketitle
+
+% Table of contents
+\begin{frame}{Table of Contents}
+    \tableofcontents
+    \thispagestyle{empty}
+\end{frame}
+
+% Sections
+\section{Project Overview}
+\label{Sec:Project_Overview}
+\include{sections/01_ProjectOverview}
+\section{Docker Setup}
+\label{Sec:Docker_Setup}
+\include{sections/02_DockerSetup}
+\section{Robot Setup}
+\label{Sec:Robot_Setup}
+\include{sections/03_RobotSetup}
+\section{Path Predictor Setup}
+\label{Sec:PathPredictor_Setup}
+\include{sections/04_PathPredictorSetup}
+\section{Usage}
+\label{Sec:Usage}
+\include{sections/05_Usage}
+\begin{frame}[standout]
+    \thispagestyle{empty}
+    Demo
+\end{frame}
+\begin{frame}[standout]
+    \thispagestyle{empty}
+    Thank you.
+\end{frame}
+\begin{frame}[allowframebreaks]{Bibliography}
+    \nocite{*}
+    \bibliography{references}
+    \bibliographystyle{unsrt}
+\end{frame}
+
+\end{document}

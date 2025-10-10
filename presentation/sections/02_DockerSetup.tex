@@ -1,0 +1,48 @@
+\begin{frame}{Docker Setup - Architecture}
+    \begin{center}
+        \includesvg[height=\textheight]{media/DockerSetup.svg}
+    \end{center}
+\end{frame}
+\begin{frame}{Docker Setup - Docker Compose}
+    The Compose file sports three services, each of which spins one of the three containers.
+    \inputminted[
+        fontsize=\footnotesize,
+        breaklines
+    ]{yaml}{code_snippets/compose_overall.yaml}
+\end{frame}
+\begin{frame}{Docker Setup - Docker Compose - ROS Service}
+    \inputminted[
+        fontsize=\tiny,
+        breaklines,
+        firstline=2,
+        lastline=24
+    ]{yaml}{../docker-compose.yml}
+\end{frame}
+\begin{frame}{Docker Setup - Docker Compose - Python Path Predictor Service}
+    \inputminted[
+        fontsize=\tiny,
+        breaklines,
+        firstline=26,
+        lastline=47
+    ]{yaml}{../docker-compose.yml}
+\end{frame}
+\begin{frame}{Docker Setup - Docker Compose - noVNC Server Service}
+    \inputminted[
+        fontsize=\tiny,
+        breaklines,
+        firstline=49,
+        lastline=69
+    ]{yaml}{../docker-compose.yml}
+\end{frame}
+\begin{frame}{Docker Setup - DevContainers - ROS Humble}
+    \inputminted[
+        fontsize=\tiny,
+        breaklines
+    ]{json}{../.devcontainer/ros-humble-sim/devcontainer.json}
+\end{frame}
+\begin{frame}{Docker Setup - DevContainers - Python Path Predictor}
+    \inputminted[
+        fontsize=\tiny,
+        breaklines
+    ]{json}{../.devcontainer/path-predictor/devcontainer.json}
+\end{frame}

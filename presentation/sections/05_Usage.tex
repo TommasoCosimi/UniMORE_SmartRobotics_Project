@@ -1,0 +1,29 @@
+\begin{frame}[fragile]{Usage Pipeline}
+    \begin{enumerate}
+        \item \textbf{Spawn the Robot with the depth camera and take pictures} \par
+        \begin{minted}[
+            fontsize=\footnotesize,
+            breaklines
+        ]{bash}
+ros@ros_devcontainer:~$ ros2 launch ur_gripper_sim get_data_w{i}.launch.py
+        \end{minted}
+        \item \textbf{Predict the contours of the object} \par
+        \begin{minted}[
+            fontsize=\footnotesize,
+            breaklines
+        ]{bash}
+py@python_devcontainer:~$ python ./predict.py
+        \end{minted}
+        \item \textbf{Spawn the Robot with the MoveIt2 Controllers and run the Inverse Kinematics} \par
+        \begin{minted}[
+            fontsize=\footnotesize,
+            breaklines
+        ]{bash}
+# Terminal Window 1
+ros@ros_devcontainer:~$ ros2 launch ur_gripper_sim sim_w{i}.launch.py
+# Terminal Window 2
+## Run the node once the simulation environment is ready
+ros@ros_devcontainer:~$ ros2 run ur_gripper_sim run_ik
+        \end{minted}
+    \end{enumerate}
+\end{frame}

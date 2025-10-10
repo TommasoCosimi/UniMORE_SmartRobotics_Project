@@ -1,0 +1,12 @@
+services:
+  ros-humble-sim:
+    # ROS Humble Container and its configurations
+    [...]
+
+  path-predictor:
+    # Python Container and its configurations
+    [...]
+
+  novnc_server:
+    # noVNC Server Container and its configurations
+    [...]
