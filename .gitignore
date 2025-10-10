@@ -19,3 +19,15 @@ common_workspace/
 utils/novnc_server/desktop-x11/
 # VNC Password file
 utils/novnc_server/scripts/.vncpass
+# Presentation
+presentation/**
+!presentation/Demo.mp4
+!presentation/UR5_SmartOutliner.pdf
+!presentation/UR5_SmartOutliner.tex
+!presentation/references.bib
+!presentation/sections/
+!presentation/sections/*.tex
+!presentation/media/
+!presentation/media/**
+!presentation/code_snippets/
+!presentation/code_snippets/**
